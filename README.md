@@ -12,7 +12,7 @@ There are 3 important directories to choose:
 * workdirectory: where the data is installed and processed
 * mysqldir: where the persistent database from the pipeline is stored
 
-Check that mysqldir must be outside workdirectory.
+Check that mysqldir is *outside* workdirectory.
 
 Make sure *dockerdirectory* has a complete permission schema (should be like this
 most times) and it is not for example a mounted NTFS partition, for example, files
@@ -31,7 +31,7 @@ with *-rw-r--r--* and **NOT -rwxrwxrwx**
 
 Check that *workdirectory*  has at least 3GB plus your genome/s file/s sizes.
 
-### Download Databases in {workdirectory}
+### Download Databases in {workdirectory}  (host machine)
 ```console
 wget https://urgi.versailles.inra.fr/download/repet/ProfilesBankForREPET_Pfam27.0_GypsyDB.hmm
 ```
@@ -50,8 +50,15 @@ total 1343444
 -rwxrwxr-x 1 user user   44925658 dic  1 11:30 RepBase20.05_REPET.embl.tar.gz
 -rwxrwxr-x 1 user user   56076961 dic  1 11:30 RepBaseRepeatMaskerEdition-20181026.tar.gz
 ```
-### Configure processors and slots in sge.main
 
+### Copy genome fasta to {workdirectory}  (host machine)
+```console
+cp {mycontigs.fasta} {workdirectory}/proj.fa
+```
+
+### Configure processors and slots in sge.main  (host machine)
+In {dockerdirectory}/sge.main configure the processors and slots you want
+for the Repet package to use. It will not necessarily use all of them.
 ```console
 # Example sge.main
 qname                 main
@@ -76,9 +83,7 @@ docker-compose.yml
     volumes:
       - {mysqldir}:/var/lib/mysql
 ```
-```console
-cp {mycontigs.fasta} {workdirectory}/proj.fa
-```
+
 
 ### Start the services (host machine)
 ```console
