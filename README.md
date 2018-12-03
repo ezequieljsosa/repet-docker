@@ -98,7 +98,7 @@ docker-compose exec  -u sgeuser repet bash
 From now on, all the work is executed in this console: **sgeuser@{someid}:/out**
 
 ### Apply jobs and processors configuration
-This has to be done **every** time container you run the previous step
+This has to be done **every** time you run the previous step
 ```console
 sudo -E /opt/sge/bin/lx-amd64/qconf -dq main
 sudo -E /opt/sge/bin/lx-amd64/qconf -Aq /root/sge_queue.conf
