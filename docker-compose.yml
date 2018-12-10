@@ -12,6 +12,7 @@ services:
       - {mysqldir}:/var/lib/mysql
       - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
       - ./my.cnf:/root/.my.cnf
+      - ./my2.cnf:/etc/mysql/my.cnf
   repet:
     image: ezequieljsosa/repet:1
     stdin_open: true
