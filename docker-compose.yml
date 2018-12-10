@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: repet
       MYSQL_DATABASE: repet
     volumes:
-      - /home/eze/repet_mysql:/var/lib/mysql
+      - {mysqldir}:/var/lib/mysql
       - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
       - ./my.cnf:/root/.my.cnf
   repet:
@@ -18,5 +18,4 @@ services:
     tty: true
     volumes:
       - ./sge.main:/root/sge_queue.conf
-      - ./update_queue.sh:/root/update_queue.sh
-      - /home/eze/repet/:/out
+      - {workdirectory}:/out

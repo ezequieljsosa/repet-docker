@@ -18,7 +18,7 @@ RUN tar xfv REPET_linux-x64-2.5.tar.gz && mv REPET_linux-x64-2.5 /repet && cd /p
  mkdir piler && mv piler_source.tar.gz piler && cd piler && \
   tar xfv piler_source.tar.gz && make && cp /programs/piler/piler2 /usr/bin/piler && cd /programs && \
  tar xfv mcl-latest.tar.gz && cd mcl-14-137/ && ./configure && make && make install && cd /programs && \
- mv trf409.linux64 /usr/local/bin/trf && cd /programs && \
+ mv trf409.linux64 /usr/local/bin/trf && chmod +x /usr/local/bin/trf && cd /programs && \
  tar xfv mreps-2.6.tar && cd mreps && make && cp mreps /usr/bin/ && cd /programs && \
  tar xfv hmmer-3.2.1.tar.gz && cd hmmer-3.2.1 && ./configure && \
   make && make install && cd easel && make install && cd /programs && \

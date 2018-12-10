@@ -1,3 +1,4 @@
+
 # Docker files for REPET package
 
 The REPET package is a software suite dedicated to detect, classify (TEdenovo pipeline) and annotate (TEannot pipeline) repeats, specifically designed for transposable elements (TEs) in genomic sequences. Website: https://urgi.versailles.inra.fr/Tools/REPET
@@ -87,11 +88,13 @@ docker-compose.yml
 
 ### Start the services (host machine)
 ```console
+# from dockerdirectory
 docker-compose up --force-recreate
 ```
 
 ### Open a bash terminal to work
 ```console
+# from dockerdirectory
 docker-compose exec  -u sgeuser repet bash
 #sgeuser@{someid}:/out
 ```
@@ -149,7 +152,7 @@ perl configure
 cd /out
 tar xfv censor-4.2.29.tar.gz
 cd censor-4.2.29
-/configure --prefix=/out/censor_bin
+./configure --prefix=/out/censor_bin
 make
 make install
 ```
@@ -157,7 +160,7 @@ make install
 ### Cleanup
 ```console
 cd /out
-rm RepBaseRepeatMaskerEdition-20181026.tar.gz RepBase20.05_REPET.embl.tar.gz censor-4.2.29.tar.gz censor-4.2.29
+rm -r RepBaseRepeatMaskerEdition-20181026.tar.gz RepBase20.05_REPET.embl.tar.gz censor-4.2.29.tar.gz censor-4.2.29
 ```
 
 ## Run the pipeline
@@ -224,7 +227,7 @@ GetSpecificTELibAccordingToAnnotation.py -i proj1237_chr_allTEs_nr_join_path.ann
 ln proj1237_chr_allTEs_nr_join_path.annotStatsPerTE_FullLengthFrag.fa proj_refTEs.fa
 ```
 
-### Annotation 2nd rount
+### Annotation 2nd round
 ```console
 nohup TEannot.py -P proj -C TEannot.cfg -S 1 | tee ta2_s1.log
 nohup TEannot.py -P proj -C TEannot.cfg -S 2 -a BLR | tee ta2_s2b.log
@@ -273,3 +276,12 @@ DELETE FROM jobs;               # Container Mysql
 * https://biosphere.france-bioinformatique.fr/wikia2/index.php/REPET_practical_course_urgi
 * https://urgi.versailles.inra.fr/Tools/REPET/TEdenovo-tuto
 * https://urgi.versailles.inra.fr/Tools/REPET/TEannot-tuto
+
+## Alternative to this repo
+
+I found this repo too late, but looks very useful:
+
+https://github.com/robsyme/docker-REPET
+
+
+
