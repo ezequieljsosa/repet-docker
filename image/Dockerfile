@@ -38,7 +38,7 @@ RUN tar xfv REPET_linux-x64-2.5.tar.gz && mv REPET_linux-x64-2.5 /repet && cd /p
      rm -r /programs/RECON-1.07/src && rm /programs/RepeatMasker/Libraries/Dfam* && \
      rm -r /programs/ncbi-blast-2.6.0+-src/ && \
  chown -R sgeuser:sgeuser /repet /programs
-
+RUN chmod +x /usr/local/bin/trf
 ADD *.cfg /docker_cfg/
 
 ENV PATH $PATH:/repet/bin/:/opt/sge/bin/lx-amd64/:/programs/RECON-1.07/scripts:/out/RepeatMasker:/out/censor_bin/bin
