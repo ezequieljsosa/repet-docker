@@ -41,6 +41,9 @@ RUN tar xfv REPET_linux-x64-2.5.tar.gz && mv REPET_linux-x64-2.5 /repet && cd /p
 RUN chmod +x /usr/local/bin/trf
 ADD *.cfg /docker_cfg/
 
+RUN sed  -i 's|chr", "varchar(255|chr", "varchar(50|g' /repet/commons/core/sql/DbMySql.py
+RUN sed  -i 's|name", "varchar(255|name", "varchar(50|g' /repet/commons/core/sql/DbMySql.py
+
 ENV PATH $PATH:/repet/bin/:/opt/sge/bin/lx-amd64/:/programs/RECON-1.07/scripts:/out/RepeatMasker:/out/censor_bin/bin
 
 ENV PYTHONPATH $PYTHONPATH:/repet/
