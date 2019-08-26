@@ -43,6 +43,9 @@ ADD *.cfg /docker_cfg/
 
 RUN sed  -i 's|chr", "varchar(255|chr", "varchar(50|g' /repet/commons/core/sql/DbMySql.py
 RUN sed  -i 's|name", "varchar(255|name", "varchar(50|g' /repet/commons/core/sql/DbMySql.py
+RUN sed  -i 's|accession", "varchar(255|accession", "varchar(50|g' /repet/commons/core/sql/DbMySql.py
+RUN sed  -i 's|description", "varchar(255|description", "varchar(100|g' /repet/commons/core/sql/DbMySql.py
+
 
 ENV PATH $PATH:/repet/bin/:/opt/sge/bin/lx-amd64/:/programs/RECON-1.07/scripts:/out/RepeatMasker:/out/censor_bin/bin
 
