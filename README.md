@@ -92,6 +92,19 @@ docker-compose.yml
 docker-compose up --force-recreate
 ```
 
+### Myqsl config
+```console
+docker-compose exec  -u sgeuser repet bash
+```
+Then
+```console
+SET GLOBAL local_infile = 1;
+SHOW VARIABLES LIKE 'local_infile'; 
+```
+local_infile must be true, otherwise the pipeline will fail.
+->
+Error "The used command is not allowed with this MySQL version"
+
 ### Open a bash terminal to work
 ```console
 # from dockerdirectory
