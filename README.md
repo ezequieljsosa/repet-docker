@@ -100,6 +100,7 @@ Then
 ```console
 SET GLOBAL local_infile = 1;
 SHOW VARIABLES LIKE 'local_infile'; 
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 ```
 local_infile must be true, otherwise the pipeline will fail.
 ->
