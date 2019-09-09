@@ -50,6 +50,7 @@ RUN sed  -i 's|status", "varchar(255|status", "varchar(100|g' /repet/commons/cor
 RUN sed  -i 's|class_classif", "varchar(255|class_classif", "varchar(100|g' /repet/commons/core/sql/DbMySql.py
 RUN sed  -i 's|order_classif", "varchar(255|order_classif", "varchar(100|g' /repet/commons/core/sql/DbMySql.py
 RUN sed  -i 's|completeness", "varchar(255|completeness", "varchar(100|g' /repet/commons/core/sql/DbMySql.py
+RUN sed  -i 's|contig varchar(255|contig varchar(100|g' /repet/commons/core/sql/DbMySql.py
 
 
 
