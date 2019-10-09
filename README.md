@@ -94,7 +94,7 @@ docker-compose up --force-recreate
 
 ### Myqsl config
 ```console
-docker-compose exec  -u sgeuser repet bash
+docker-compose exec mysql bash  
 ```
 Then
 ```console
